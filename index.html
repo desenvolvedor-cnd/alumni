@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/brasão completo.png">
+    <title>Inscrição Alumni - Colégio Notre Dame Campinas</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            500: '#334e68',
+                            600: '#243b53',
+                            700: '#102a43', // Azul Marinho
+                            800: '#0b1f35',
+                            900: '#06101c',
+                        },
+                        accent: {
+                            50: '#fff9e6',
+                            100: '#ffebb3',
+                            400: '#f7c948',
+                            500: '#f0b429', // Amarelo Mostarda
+                            600: '#de911d',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .input-transition { transition: all 0.3s ease; }
+        .success-animation { animation: fadeInOut 0.5s ease-in-out; }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(-10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .section-divider {
+            border-bottom: 2px solid #f3f4f6;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .video-container { max-width: 600px; margin: 0 auto; }
+        
+        /* Checkbox styles customizados */
+        input[type="checkbox"]:checked {
+            background-color: #f0b429;
+            border-color: #f0b429;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen">
+
+    <header class="w-full bg-brand-800 relative overflow-hidden shadow-md">
+        <img src="img/Banner_Formulario_Alumni.png" 
+            alt="Banner Alumni Notre Dame" 
+            class="w-full h-auto block"
+            onerror="this.style.display='none'">
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <div class="lg:col-span-4 lg:sticky lg:top-8 space-y-6">
+                <div>  
+                    <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-brand-700">
+                        Alumni Notre Dame
+                    </h2>
+                    <div class="h-1.5 w-16 bg-accent-500 mt-4 rounded-full"></div>
+                </div>
+
+                <p class="text-base text-gray-600 leading-relaxed">
+                    Reconecte-se com sua história e crie novas oportunidades na nossa comunidade de ex-alunos. Preencha o formulário para fazer parte.
+                </p>
+
+                <div class="video-container w-full pt-4">
+                    <div class="relative overflow-hidden rounded-xl shadow-lg border-4 border-white bg-gray-200" style="padding-top: 56.25%;">
+                        <iframe class="absolute top-0 left-0 w-full h-full" 
+                                src="https://www.youtube.com/embed/A_PKirNM184?rel=0&showinfo=0" 
+                                title="Vídeo Eventos Colégio Notre Dame Campinas" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-3 font-medium uppercase tracking-wider flex items-center gap-2 justify-center">
+                        <i class="ph-fill ph-play-circle text-accent-500 text-lg"></i> Assista à nossa história
+                    </p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-8">
+                <div class="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+                    <div id="formHeader" class="bg-brand-700 py-5 px-8">
+                        <h3 class="text-white font-bold text-lg flex items-center gap-2">
+                            <i class="ph ph-note-pencil text-2xl text-accent-500"></i> Formulário de Inscrição Oficial
+                        </h3>
+                    </div>
+
+                    <form id="customForm" class="p-6 md:p-8 space-y-10" action="#" method="POST">
+                        
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-700 section-divider flex items-center gap-2">
+                                <i class="ph-fill ph-identification-card text-accent-500"></i> 1. Dados Pessoais
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="nome" class="block text-sm font-medium text-gray-700">Nome <span class="text-red-500">*</span></label>
+                                    <input id="nome" name="entry.350995693" type="text" required placeholder="Seu nome" class="mt-1 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+                                <div>
+                                    <label for="sobrenome" class="block text-sm font-medium text-gray-700">Sobrenome <span class="text-red-500">*</span></label>
+                                    <input id="sobrenome" name="entry.138766412" type="text" required placeholder="Seu sobrenome" class="mt-1 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label for="nome_solteiro" class="block text-sm font-medium text-gray-700">Nome de solteiro(a) <span class="text-gray-400 font-normal text-xs">(se aplicável)</span></label>
+                                    <input id="nome_solteiro" name="entry.1264493396" type="text" placeholder="Caso tenha mudado de nome" class="mt-1 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+                                <div>
+                                    <label for="cpf" class="block text-sm font-medium text-gray-700">CPF <span class="text-red-500">*</span></label>
+                                    <input id="cpf" name="entry.1263356739" type="text" required pattern="\d*" placeholder="Somente números" class="mt-1 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+                                
+                                <div>
+                                    <label for="ra_select" class="block text-sm font-medium text-gray-700">RA (Registro de Aluno) <span class="text-red-500">*</span></label>
+                                    <div class="mt-1 relative">
+                                        <select id="ra_select" name="entry.630369667" required class="input-transition block w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm appearance-none bg-gray-50 focus:bg-white cursor-pointer">
+                                            <option value="" disabled selected>Selecione...</option>
+                                            <option value="Informar RA">Informar RA</option>
+                                            <option value="Não me lembro">Não me lembro</option>
+                                        </select>
+                                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"><i class="ph-bold ph-caret-down"></i></div>
+                                    </div>
+                                </div>
+                                <div id="div_ra_input" class="hidden md:col-span-2 bg-accent-50 p-4 rounded-xl border border-accent-100">
+                                    <label for="ra_input" class="block text-sm font-medium text-brand-800">Preencha o número do seu RA <span class="text-red-500">*</span></label>
+                                    <input id="ra_input" name="entry.1170628060" type="text" placeholder="Digite aqui o número" class="mt-2 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 focus:border-accent-500 sm:text-sm">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700">E-mail de contato principal <span class="text-red-500">*</span></label>
+                                    <div class="mt-1 relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-envelope text-gray-400 text-lg"></i></div>
+                                        <input id="email" name="entry.1242391079" type="email" required placeholder="voce@email.com" class="input-transition block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="celular" class="block text-sm font-medium text-gray-700">Celular com DDD <span class="text-red-500">*</span></label>
+                                    <div class="mt-1 relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-whatsapp-logo text-gray-400 text-lg"></i></div>
+                                        <input id="celular" name="entry.159687080" type="tel" required placeholder="(19) 90000-0000" class="input-transition block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                    </div>
+                                </div>
+                                <div class="md:col-span-2">
+                                    <label for="localizacao" class="block text-sm font-medium text-gray-700">Localização atual (Cidade/Estado) <span class="text-red-500">*</span></label>
+                                    <div class="mt-1 relative">
+                                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-map-pin text-gray-400 text-lg"></i></div>
+                                        <input id="localizacao" name="entry.1827054802" type="text" required placeholder="Ex: Campinas/SP" class="input-transition block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-700 section-divider flex items-center gap-2 mt-8">
+                                <i class="ph-fill ph-books text-accent-500"></i> 2. Formação
+                            </h3>
+                            <div class="grid grid-cols-1 gap-6">
+                                <div>
+                                    <label for="ano_formacao" class="block text-sm font-medium text-gray-700">Ano de formação ou ano em que deixou o colégio <span class="text-red-500">*</span></label>
+                                    <input id="ano_formacao" name="entry.1194127116" type="text" required placeholder="Ex: 2010" class="mt-1 input-transition block w-full md:w-1/2 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+                                <div>
+                                    <label for="educacao_superior" class="block text-sm font-medium text-gray-700">Educação Superior - Cite seus cursos e instituições <span class="text-red-500">*</span></label>
+                                    <textarea id="educacao_superior" name="entry.1457303288" required rows="3" class="mt-1 input-transition block w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white" placeholder="Ex: Graduação em Engenharia pela Unicamp; MBA pela FGV..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-700 section-divider flex items-center gap-2 mt-8">
+                                <i class="ph-fill ph-briefcase text-accent-500"></i> 3. Perfil Profissional
+                            </h3>
+                            <div class="space-y-6">
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <!-- Segmento de Mercado -->
+                                    <div>
+                                        <label for="segmento_select" class="block text-sm font-medium text-gray-700 mb-1">Segmento de mercado em que atua <span class="text-red-500">*</span></label>
+                                        <div class="relative">
+                                            <select id="segmento_select" name="entry.1527432000" required class="input-transition block w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg appearance-none bg-gray-50 focus:bg-white focus:ring-2 focus:ring-accent-500 sm:text-sm cursor-pointer">
+                                                <option value="" disabled selected>Escolha a opção...</option>
+                                                <option value="Agronegócio/Alimentos e Bebidas">Agronegócio/Alimentos e Bebidas</option>
+                                                <option value="Indústria (Manufatura, Química, Metalurgia)">Indústria (Manufatura, Química, Metalurgia)</option>
+                                                <option value="Serviços Financeiros/Bancos/Seguros">Serviços Financeiros/Bancos/Seguros</option>
+                                                <option value="Saúde/Farmacêutica">Saúde/Farmacêutica</option>
+                                                <option value="Educação/Ensino">Educação/Ensino</option>
+                                                <option value="Tecnologia/Software/Telecomunicações">Tecnologia/Software/Telecomunicações</option>
+                                                <option value="Comércio Varejista/E-commerce">Comércio Varejista/E-commerce</option>
+                                                <option value="Construção Civil/Imobiliário">Construção Civil/Imobiliário</option>
+                                                <option value="Transporte/Logística">Transporte/Logística</option>
+                                                <option value="Comunicação/Mídia/Publicidade">Comunicação/Mídia/Publicidade</option>
+                                                <option value="Consultoria/Auditoria">Consultoria/Auditoria</option>
+                                                <option value="Governo/Setor Público">Governo/Setor Público</option>
+                                                <option value="Organização Não Governamental (ONG)/Terceiro Setor">Organização Não Governamental (ONG)/Terceiro Setor</option>
+                                                <option value="Não estou trabalhando no momento">Não estou trabalhando no momento</option>
+                                                <option value="__other_option__">Outro</option>
+                                            </select>
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"><i class="ph-bold ph-caret-down"></i></div>
+                                        </div>
+                                        <input id="segmento_outro" name="entry.1527432000.other_option_response" type="text" placeholder="Especifique o segmento..." class="hidden mt-2 w-full px-4 py-2 border border-accent-400 bg-accent-50 rounded-lg text-sm">
+                                    </div>
+                                    
+                                    <!-- Função -->
+                                    <div>
+                                        <label for="funcao_select" class="block text-sm font-medium text-gray-700 mb-1">Função que exerce <span class="text-red-500">*</span></label>
+                                        <div class="relative">
+                                            <select id="funcao_select" name="entry.946946111" required class="input-transition block w-full pl-3 pr-10 py-3 border border-gray-300 rounded-lg appearance-none bg-gray-50 focus:bg-white focus:ring-2 focus:ring-accent-500 sm:text-sm cursor-pointer">
+                                                <option value="" disabled selected>Escolha a função...</option>
+                                                <option value="Administrativo/Secretariado">Administrativo/Secretariado</option>
+                                                <option value="Comercial/Vendas">Comercial/Vendas</option>
+                                                <option value="Marketing/Comunicação">Marketing/Comunicação</option>
+                                                <option value="Recursos Humanos (RH)">Recursos Humanos (RH)</option>
+                                                <option value="Financeiro/Contabilidade">Financeiro/Contabilidade</option>
+                                                <option value="Jurídico/Compliance">Jurídico/Compliance</option>
+                                                <option value="Tecnologia da Informação (TI)/Desenvolvimento">Tecnologia da Informação (TI)/Desenvolvimento</option>
+                                                <option value="Engenharia/Operações">Engenharia/Operações</option>
+                                                <option value="Saúde/Medicina">Saúde/Medicina</option>
+                                                <option value="Pesquisa/Acadêmico">Pesquisa/Acadêmico</option>
+                                                <option value="Liderança/Gestão Executiva">Liderança/Gestão Executiva</option>
+                                                <option value="Empreendedor/Proprietário de Negócio">Empreendedor/Proprietário de Negócio</option>
+                                                <option value="Não estou trabalhando no momento">Não estou trabalhando no momento</option>
+                                                <option value="__other_option__">Outro</option>
+                                            </select>
+                                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500"><i class="ph-bold ph-caret-down"></i></div>
+                                        </div>
+                                        <input id="funcao_outro" name="entry.946946111.other_option_response" type="text" placeholder="Especifique a função..." class="hidden mt-2 w-full px-4 py-2 border border-accent-400 bg-accent-50 rounded-lg text-sm">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="empresa" class="block text-sm font-medium text-gray-700">Atua em empreendimento próprio ou do mercado? Qual o nome da empresa? <span class="text-red-500">*</span></label>
+                                    <input id="empresa" name="entry.303733281" type="text" required placeholder="Nome da empresa/instituição" class="mt-1 input-transition block w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white">
+                                </div>
+
+                                <!-- Redes Sociais -->
+                                <div class="bg-gray-50/50 p-5 rounded-2xl border border-gray-200 mt-4">
+                                    <h4 class="text-sm font-bold text-brand-700 uppercase tracking-wide mb-4 flex items-center gap-2">
+                                        <i class="ph ph-link text-lg"></i> Redes Sociais e Contatos <span class="font-normal normal-case text-xs text-gray-500">(Opcionais)</span>
+                                    </h4>
+                                    
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="site" class="block text-xs font-medium text-gray-600 mb-1">Site profissional</label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-globe text-gray-400"></i></div>
+                                                <input id="site" name="entry.1474602931" type="text" placeholder="www.seusite.com.br" class="block w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-white">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="linkedin" class="block text-xs font-medium text-gray-600 mb-1">LinkedIn</label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-linkedin-logo text-blue-600"></i></div>
+                                                <input id="linkedin" name="entry.1497671525" type="text" placeholder="URL do seu perfil" class="block w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-white">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="instagram" class="block text-xs font-medium text-gray-600 mb-1">Instagram</label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-instagram-logo text-pink-600"></i></div>
+                                                <input id="instagram" name="entry.1869510454" type="text" placeholder="@seu_perfil" class="block w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-white">
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label for="facebook" class="block text-xs font-medium text-gray-600 mb-1">Facebook</label>
+                                            <div class="relative">
+                                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"><i class="ph ph-facebook-logo text-blue-500"></i></div>
+                                                <input id="facebook" name="entry.233765141" type="text" placeholder="URL do perfil" class="block w-full pl-9 pr-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-white">
+                                            </div>
+                                        </div>
+                                        <div class="md:col-span-2">
+                                            <label for="outras_redes" class="block text-xs font-medium text-gray-600 mb-1">Outras redes sociais</label>
+                                            <input id="outras_redes" name="entry.1450075660" type="text" placeholder="Ex: Lattes, Twitter, Github..." class="block w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm bg-white">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-brand-700 section-divider flex items-center gap-2 mt-8">
+                                <i class="ph-fill ph-handshake text-accent-500"></i> 4. Conexões e Mentoria
+                            </h3>
+                            <div class="space-y-8">
+                                
+                                <!-- Oferecimento de Ajuda -->
+                                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                                    <label class="block text-base font-bold text-brand-800 mb-1">Interesses no oferecimento de ajuda <span class="text-red-500">*</span></label>
+                                    <p class="text-sm text-gray-500 mb-4">Selecione como você estaria disposto(a) a contribuir (pode escolher mais de uma opção).</p>
+                                    
+                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Introdução a conexões profissionais (Networking)" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Introdução a conexões profissionais (Networking)</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Abrir portas do meu escritório/empresa para visitas ou eventos" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Abrir portas do meu escritório/empresa para visitas/eventos</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Responder dúvidas sobre meu segmento de mercado" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Responder dúvidas sobre meu segmento de mercado</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Mentoria para alunos em fase de escolha de carreira" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Mentoria para alunos em fase de escolha de carreira</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Mentoria para profissionais de mercado (Jovens Alumni)" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Mentoria para profissionais (Jovens Alumni)</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Conselhos de Carreira" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Conselhos de Carreira</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Verificar/Revisar currículo" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Verificar/Revisar currículo</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Oferecer vaga de estágio ou emprego" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Oferecer vaga de estágio ou emprego</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Filantropia/doações para o Colégio" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Filantropia/doações para o Colégio</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Voluntariado em eventos do Colégio" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Voluntariado em eventos do Colégio</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.1072611211" value="Não tenho disponibilidade/interesse em oferecer ajuda" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Não tenho disponibilidade em oferecer ajuda</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" id="check_oferece_outro" name="entry.1072611211" value="Outros (especificar no campo abaixo)" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700 font-medium">Outros (especificar abaixo)</span>
+                                        </label>
+                                    </div>
+                                    <input id="oferece_ajuda_outro" name="entry.828438801" type="text" placeholder="Especifique como gostaria de ajudar..." class="hidden mt-3 input-transition w-full px-4 py-3 border border-accent-400 bg-accent-50 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm">
+                                </div>
+
+                                <!-- Solicitação de Ajuda -->
+                                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                                    <label class="block text-base font-bold text-brand-800 mb-1">Interesses na solicitação de ajuda em <span class="text-red-500">*</span></label>
+                                    <p class="text-sm text-gray-500 mb-4">Selecione onde você busca apoio (pode escolher mais de uma opção).</p>
+                                    
+                                    <div class="grid grid-cols-1 xl:grid-cols-2 gap-3">
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Ser introduzido a conexões profissionais (Networking)" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Ser introduzido a conexões profissionais (Networking)</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Acesso a visitas/eventos em escritórios/empresas" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Acesso a visitas/eventos em escritórios/empresas</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Tirar dúvidas sobre um segmento de mercado específico" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Tirar dúvidas sobre um segmento específico</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Procurar Mentoria para escolha de carreira" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Procurar Mentoria para escolha de carreira</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Procurar Mentoria para desenvolvimento profissional" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Procurar Mentoria para desenvolvimento profissional</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Receber Conselhos de Carreira" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Receber Conselhos de Carreira</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Revisão de currículo" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Revisão de currículo</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Busca por vaga de estágio ou emprego" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Busca por vaga de estágio ou emprego</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Participação em eventos de filantropia/voluntariado" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Participação em eventos de filantropia/voluntariado</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" name="entry.24787202" value="Não tenho necessidade de solicitar ajuda" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700">Não tenho necessidade de solicitar ajuda</span>
+                                        </label>
+                                        <label class="flex items-start cursor-pointer group hover:bg-gray-50 p-2 rounded-md transition-colors border border-transparent hover:border-gray-200">
+                                            <input type="checkbox" id="check_solicita_outro" name="entry.24787202" value="Outros (especificar no campo abaixo)" class="mt-0.5 h-4 w-4 text-accent-500 focus:ring-accent-500 border-gray-300 rounded">
+                                            <span class="ml-3 text-sm text-gray-700 font-medium">Outros (especificar abaixo)</span>
+                                        </label>
+                                    </div>
+                                    <input id="solicita_ajuda_outro" name="entry.1489395897" type="text" placeholder="Especifique o tipo de ajuda que procura..." class="hidden mt-3 input-transition w-full px-4 py-3 border border-accent-400 bg-accent-50 rounded-lg focus:ring-2 focus:ring-accent-500 sm:text-sm">
+                                </div>
+
+                                <!-- Comentários -->
+                                <div>
+                                    <label for="comentarios" class="block text-sm font-medium text-gray-700">Deixe seus comentários ou uma mensagem para os seus colegas</label>
+                                    <textarea id="comentarios" name="entry.374391702" rows="4" class="mt-2 input-transition block w-full p-4 border border-gray-300 rounded-xl focus:ring-2 focus:ring-accent-500 sm:text-sm bg-gray-50 focus:bg-white" placeholder="Sua mensagem ficará guardada na nossa comunidade..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit" id="submitBtn" 
+                                class="w-full flex justify-center items-center py-4 px-4 rounded-2xl shadow-lg hover:shadow-xl text-lg font-bold text-brand-800 bg-accent-500 hover:bg-accent-400 focus:outline-none focus:ring-4 focus:ring-accent-200 transition-all transform hover:-translate-y-1">
+                                <span id="btnText">Enviar Cadastro Alumni</span>
+                                <i id="btnSpinner" class="ph ph-spinner-gap animate-spin text-2xl ml-2 hidden"></i>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div id="successMessage" class="hidden p-8 md:p-12 text-center success-animation bg-white">
+                        <i class="ph-fill ph-check-circle text-green-500 text-7xl md:text-8xl mb-6"></i>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-brand-700 mb-4">Cadastro Concluído!</h3>
+                        <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto">Bem-vindo(a) ao Alumni do Colégio Notre Dame Campinas. Recebemos suas informações e em breve entraremos em contato com novidades.</p>
+                    </div>
+
+                    <div id="errorMessage" class="hidden m-6 md:m-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 rounded-r-lg">
+                        <div class="flex items-center gap-3">
+                            <i class="ph-fill ph-warning-circle text-2xl"></i>
+                            <div>
+                                <h3 class="font-bold text-lg">Atenção</h3>
+                                <p id="errorText" class="text-sm mt-1">Por favor, verifique se todos os campos obrigatórios (*) foram preenchidos e se selecionou as opções de ajuda.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-brand-800 text-white py-6 mt-12 border-t-4 border-accent-500">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="text-xl font-bold mb-2">Alumni</h3>
+            <p class="text-brand-100 font-medium">Colégio Notre Dame Campinas</p>
+            <p class="text-brand-300 text-sm mt-6">© 2026 - Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica de exibir/ocultar inputs dinâmicos e limpar valor se oculto
+        document.getElementById('ra_select').addEventListener('change', function(e) {
+            const inputDiv = document.getElementById('div_ra_input');
+            const inputField = document.getElementById('ra_input');
+            if(e.target.value === 'Informar RA') {
+                inputDiv.classList.remove('hidden');
+                inputField.required = true;
+                inputField.focus();
+            } else {
+                inputDiv.classList.add('hidden');
+                inputField.required = false;
+                inputField.value = ''; 
+            }
+        });
+
+        document.getElementById('segmento_select').addEventListener('change', function(e) {
+            const inputField = document.getElementById('segmento_outro');
+            if(e.target.value === '__other_option__') {
+                inputField.classList.remove('hidden');
+                inputField.required = true;
+                inputField.focus();
+            } else {
+                inputField.classList.add('hidden');
+                inputField.required = false;
+                inputField.value = '';
+            }
+        });
+
+        document.getElementById('funcao_select').addEventListener('change', function(e) {
+            const inputField = document.getElementById('funcao_outro');
+            if(e.target.value === '__other_option__') {
+                inputField.classList.remove('hidden');
+                inputField.required = true;
+                inputField.focus();
+            } else {
+                inputField.classList.add('hidden');
+                inputField.required = false;
+                inputField.value = '';
+            }
+        });
+
+        document.getElementById('check_oferece_outro').addEventListener('change', function(e) {
+            const inputField = document.getElementById('oferece_ajuda_outro');
+            if(e.target.checked) {
+                inputField.classList.remove('hidden');
+                inputField.required = true;
+                inputField.focus();
+            } else {
+                inputField.classList.add('hidden');
+                inputField.required = false;
+                inputField.value = '';
+            }
+        });
+
+        document.getElementById('check_solicita_outro').addEventListener('change', function(e) {
+            const inputField = document.getElementById('solicita_ajuda_outro');
+            if(e.target.checked) {
+                inputField.classList.remove('hidden');
+                inputField.required = true;
+                inputField.focus();
+            } else {
+                inputField.classList.add('hidden');
+                inputField.required = false;
+                inputField.value = '';
+            }
+        });
+
+        // Configuração de envio para o Google Forms
+        const googleFormsActionURL = 'https://docs.google.com/forms/d/e/1FAIpQLSdn6HOFzyhyIympqNpXTLEIdMZamDx47tTLNQVpcrFINnbUFQ/formResponse'; 
+
+        document.getElementById('customForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            const errorMsg = document.getElementById('errorMessage');
+            errorMsg.classList.add('hidden');
+
+            // Validação customizada dos Checkboxes (Garante pelo menos 1 marcação)
+            const ofereceChecked = document.querySelectorAll('input[name="entry.1072611211"]:checked');
+            const solicitaChecked = document.querySelectorAll('input[name="entry.24787202"]:checked');
+
+            if (ofereceChecked.length === 0 || solicitaChecked.length === 0) {
+                document.getElementById('errorText').textContent = "Atenção: É necessário selecionar pelo menos uma opção nas áreas de Oferecimento de Ajuda e Solicitação de Ajuda.";
+                errorMsg.classList.remove('hidden');
+                
+                const y = errorMsg.getBoundingClientRect().top + window.pageYOffset - 100;
+                window.scrollTo({top: y, behavior: 'smooth'});
+                return;
+            }
+
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            // Feedback visual: botão desabilitado e girando
+            btnText.textContent = 'Enviando seus dados...';
+            btnSpinner.classList.remove('hidden');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-80', 'cursor-not-allowed', 'transform-none');
+
+            // Prepara os dados
+            const formData = new FormData(form);
+            const searchParams = new URLSearchParams();
+
+            for (const pair of formData.entries()) {
+                searchParams.append(pair[0], pair[1]);
+            }
+
+            // Realiza o envio via fetch 'no-cors' para evitar bloqueio do navegador
+            fetch(googleFormsActionURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: searchParams
+            })
+            .then(() => {
+                try {
+                    // Sucesso: Esconde form e topo azul, mostra mensagem
+                    form.classList.add('hidden');
+                    
+                    const header = document.getElementById('formHeader');
+                    if(header) header.classList.add('hidden');
+                    
+                    const successMessage = document.getElementById('successMessage');
+                    if (successMessage) {
+                        successMessage.classList.remove('hidden');
+                        // Rola para o topo da ilha branca
+                        const y = successMessage.parentElement.getBoundingClientRect().top + window.pageYOffset - 50;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                } catch (e) {
+                    console.error("Erro na interface após envio:", e);
+                }
+            })
+            .catch((error) => {
+                // Erro de rede
+                console.error('Erro no envio:', error);
+                document.getElementById('errorText').textContent = 'Erro de conexão. Verifique sua internet e tente enviar novamente.';
+                errorMsg.classList.remove('hidden');
+                
+                // Restaura o botão
+                btnText.textContent = 'Tentar Novamente';
+                btnSpinner.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-80', 'cursor-not-allowed', 'transform-none');
+            });
+        });
+    </script>
+</body>
+</html>
